@@ -152,6 +152,12 @@ en:
       create: Create %{model}
       submit: Save %{model}
       update: Update %{model}
+      destroy: Delete %{model}
+    links:
+      new: New %{model}
+      show: Show this %{model}
+      edit: Edit this %{model}
+      back_to_index: Back to %{model}s
   number:
     currency:
       format:

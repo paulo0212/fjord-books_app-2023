@@ -117,9 +117,15 @@ ja:
     select:
       prompt: 選択してください
     submit:
-      create: 登録する
-      submit: 保存する
-      update: 更新する
+      create: "%{model}を登録する"
+      submit: "%{model}を保存する"
+      update: "%{model}を更新する"
+      destroy: "%{model}を削除する"
+    links:
+      new: "新しい%{model}を登録"
+      show: "この%{model}を表示"
+      edit: "この%{model}を編集"
+      back_to_index: "%{model}の一覧に戻る"
   number:
     currency:
       format:

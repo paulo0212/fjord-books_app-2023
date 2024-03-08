@@ -157,7 +157,7 @@ en:
       new: New %{model}
       show: Show this %{model}
       edit: Edit this %{model}
-      back_to_index: Back to %{model}s
+      back_to_index: Back to %{model}
   number:
     currency:
       format:

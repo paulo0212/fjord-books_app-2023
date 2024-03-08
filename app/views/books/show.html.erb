@@ -6,6 +6,6 @@
 
 <nav class="page-nav">
   <%= link_to t('helpers.links.edit', model: Book.model_name.human), edit_book_path(@book) %> |
-  <%= link_to t('helpers.links.back_to_index', model: Book.model_name.human), books_path %>
+  <%= link_to t('helpers.links.back_to_index', model: Book.model_name.human(count: 2)), books_path %>
   <%= button_to t('helpers.submit.destroy', model: Book.model_name.human), @book, method: :delete %>
 </nav>

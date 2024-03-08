@@ -1,7 +1,9 @@
 en:
   activerecord:
     models:
-      book: Book  #g
+      book:  #g
+        one: Book
+        other: Books
 
     attributes:
       book:

@@ -194,6 +194,8 @@ ja:
       title_edit: "%{name}の編集"
       error: エラー
       validation_error: "%{errors}があるため、この%{name}は保存できませんでした"
+      history_back: 戻る
+      min_chars: '%{chars}文字以上で入力してください'
     pagination:
       first: '« 最初'
       last: '最後 »'
@@ -205,3 +207,13 @@ ja:
       notice_create: "%{name}が作成されました。"
       notice_update: "%{name}が更新されました。"
       notice_destroy: "%{name}が削除されました。"
+  devise:
+    passwords:
+      leave_blank_unless_change: 'パスワードを変更する場合のみ入力してください'
+      required_to_confirm: '変更を保存するためにパスワードが必要です'
+    nav:
+      logged_in_as: "%{user} としてログイン中"
+      edit_profile: ユーザ情報編集
+      log_in: ログイン
+      log_out: ログアウト
+      sign_up: 会員登録

@@ -71,6 +71,9 @@ group :development do
   gem 'rubocop', '~> 1.45.1', require: false
   gem 'rubocop-fjord', require: false
   gem 'rubocop-rails', require: false
+
+  # Use generators to create locale files
+  gem 'i18n_generators'
 end
 
 group :test do

@@ -1,0 +1,8 @@
+ja:
+  common:
+    create:
+      notice: "%{model}の作成に成功しました。"
+    update:
+      notice: "%{model}の更新に成功しました。"
+    destroy:
+      notice: "%{model}の削除に成功しました。"

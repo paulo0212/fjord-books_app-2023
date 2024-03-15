@@ -1,0 +1,8 @@
+en:
+  common:
+    create:
+      notice: "%{model} was successfully created."
+    update:
+      notice: "%{model} was successfully updated."
+    destroy:
+      notice: "%{model} was successfully deleted."

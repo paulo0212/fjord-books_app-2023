@@ -1,0 +1,8 @@
+en:
+  books:
+    index:
+      title: Books
+    new:
+      title: New Book
+    edit:
+      title: Edit Book

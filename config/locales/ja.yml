@@ -209,6 +209,7 @@ ja:
       notice_destroy: "%{name}が削除されました。"
   devise:
     passwords:
+      currently_waiting_confirmation_for_email: 'すでにこのメールアドレスに本人確認メールをお送りしています'
       leave_blank_unless_change: 'パスワードを変更する場合のみ入力してください'
       required_to_confirm: '変更を保存するためにパスワードが必要です'
     nav:

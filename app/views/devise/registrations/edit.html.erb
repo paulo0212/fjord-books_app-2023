@@ -9,7 +9,7 @@
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <div><%= t('devise.passwords.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></div>
   <% end %>
 
   <div class="field">
@@ -57,7 +57,7 @@
 <% end %>
 
 <div style="margin: 15px 0px;">
-  <%= button_to t('views.common.destroy', name: User.model_name.human), registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %>
+  <%= button_to t('views.common.destroy', name: User.model_name.human), registration_path(resource_name), data: { confirm: t('views.common.delete_confirm'), turbo_confirm: t('views.common.delete_confirm') }, method: :delete %>
 </div>
 
 <%= link_to t('views.common.history_back'), :back %>

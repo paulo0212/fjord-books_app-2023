@@ -1,0 +1,25 @@
+<div id="<%= dom_id user %>">
+  <h2>
+    <%= user.name %>
+  </h2>
+  <p>
+    <strong><%= User.human_attribute_name(:email) %>:</strong>
+    <%= user.email %>
+  </p>
+  <p>
+    <strong><%= User.human_attribute_name(:zip_code) %>:</strong>
+    <%= user.zip_code %>
+  </p>
+  <p>
+    <strong><%= User.human_attribute_name(:address) %>:</strong>
+    <%= user.address %>
+  </p>
+  <p>
+    <strong><%= User.human_attribute_name(:biography) %>:</strong>
+    <%= user.biography %>
+  </p>
+  <p>
+    <strong><%= User.human_attribute_name(:created_at) %>:</strong>
+    <%= user.created_at.strftime('%F %R') %>
+  </p>
+</div>

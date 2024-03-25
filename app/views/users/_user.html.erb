@@ -1,7 +1,7 @@
 <div id="<%= dom_id user %>">
 
   <% if user.icon.attached? %>
-    <div><%= image_tag(user.icon) %></div>
+    <div><%= image_tag user.icon.variant(:thumb) %></div>
   <% end %>
 
   <p>

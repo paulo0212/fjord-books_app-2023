@@ -8,7 +8,7 @@
   <% if resource.icon.attached? %>
     <div><%= image_tag resource.icon.variant(:preview) %></div>
   <% end %>
-  <%= f.file_field :icon %>
+  <%= f.file_field :icon, accept: 'image/jpg, image/png, image/gif' %>
 </div>
 
 <div class="field">

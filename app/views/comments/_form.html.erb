@@ -1,0 +1,9 @@
+<%= form_with model: [commentable, comment], local: false do |form| %>
+  <div>
+    <%= form.text_area :body, class: 'form-control', required: true %>
+  </div>
+
+  <div>
+    <%= form.submit class: 'btn btn-primary btn-sm' %>
+  </div>
+<% end %>

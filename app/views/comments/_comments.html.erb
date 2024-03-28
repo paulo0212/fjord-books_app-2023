@@ -2,10 +2,16 @@
   <div>There is no comments.</div>
 <% end %>
 <% comments.each do |comment| %>
-  <div>
-    <%= comment.body %> |
-    <% if current_user == comment.user %>
-      <%= link_to "Destroy", [commentable, comment], data: { turbo_method: :delete } %>
-    <% end %>
+  <div class='show-item' style='margin: 15px 0; padding: 15px;'>
+    <div>
+      <span style='font-weight: bold;'><%= current_user_name(comment.user) %></span>
+      <span style='float: right;'>
+        <% if current_user == comment.user %>
+          <%= link_to "Destroy", [commentable, comment], data: { turbo_method: :delete } %>
+        <% end %>
+      </span>
+    </div>
+    <span style='font-size: 0.75rem; color: gray;'><%= comment.created_at %></span>
+    <div><%= comment.body %></div>
   </div>
 <% end %>

@@ -11,7 +11,11 @@
 
   <p>
     <strong>User:</strong>
-    <%= report.user_id %>
+    <%= current_user_name(report.user) %>
   </p>
 
+  <p>
+    <strong>Posted at:</strong>
+    <%= report.created_at %>
+  </p>
 </div>

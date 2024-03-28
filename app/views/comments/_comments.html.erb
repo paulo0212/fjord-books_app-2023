@@ -2,5 +2,10 @@
   <div>There is no comments.</div>
 <% end %>
 <% comments.each do |comment| %>
-  <div><%= comment.body %></div>
+  <div>
+    <%= comment.body %> |
+    <% if current_user == comment.user %>
+      <%= link_to "Destroy", [commentable, comment], data: { turbo_method: :delete } %>
+    <% end %>
+  </div>
 <% end %>

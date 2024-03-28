@@ -1,5 +1,5 @@
 <% if comments.empty? %>
-  <div>There is no comments.</div>
+  <div><%= t('views.common.not_exist', name: Comment.model_name.human.downcase) %></div>
 <% end %>
 <% comments.each do |comment| %>
   <div class='show-item' style='margin: 15px 0; padding: 15px;'>
@@ -7,11 +7,11 @@
       <span style='font-weight: bold;'><%= current_user_name(comment.user) %></span>
       <span style='float: right;'>
         <% if current_user == comment.user %>
-          <%= link_to "Destroy", [commentable, comment], data: { turbo_method: :delete } %>
+          <%= link_to t('views.common.destroy', name: Comment.model_name.human.downcase), [commentable, comment], data: { turbo_method: :delete } %>
         <% end %>
       </span>
     </div>
-    <span style='font-size: 0.75rem; color: gray;'><%= comment.created_at %></span>
+    <span style='font-size: 0.75rem; color: gray;'><%= l(comment.created_at, format: :long) %></span>
     <div><%= comment.body %></div>
   </div>
 <% end %>

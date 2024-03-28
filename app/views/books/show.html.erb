@@ -12,4 +12,5 @@
 </nav>
 
 <h2>コメント</h2>
+<%= render 'comments/comments', { comments: @comments } %>
 <%= render 'comments/form', { commentable: @book, comment: @comment } %>

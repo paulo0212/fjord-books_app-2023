@@ -1,0 +1,6 @@
+<% if comments.empty? %>
+  <div>There is no comments.</div>
+<% end %>
+<% comments.each do |comment| %>
+  <div><%= comment.body %></div>
+<% end %>

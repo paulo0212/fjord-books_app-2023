@@ -1,9 +1,12 @@
 <% if mentioned_reports.present? %>
-  <div>
+  <div style='margin-top: 32px;'>
     この日報は、以下の日報からリンクされています。
     <ul>
       <% mentioned_reports.each do |report| %>
-        <li><a href='<%= report.id %>'><%= report.title %></a></li>
+        <li>
+          <a href='<%= report.id %>'><%= report.title %></a>
+          <span style='font-size: 0.8rem; color: gray;'>からリンク ( <%= time_ago_in_words(report.created_at) %>前 )</span>
+        </li>
       <% end %>
     </ul>
   </div>

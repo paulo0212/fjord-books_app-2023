@@ -19,9 +19,9 @@ class Report < ApplicationRecord
   after_update do
     existing_ids = mentioning_report_ids
     mentioning_ids = extract_mentioning_report_ids
-    report_ids_to_add = existing_ids - mentioning_ids
+    report_ids_to_add = mentioning_ids - existing_ids
     add_mentions(report_ids_to_add)
-    report_ids_to_remove = mentioning_ids - existing_ids
+    report_ids_to_remove = existing_ids - mentioning_ids
     remove_mentions(report_ids_to_remove)
   end
 

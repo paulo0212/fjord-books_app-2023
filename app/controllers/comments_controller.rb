@@ -3,7 +3,7 @@
 class CommentsController < ApplicationController
   before_action :set_commentable, only: %i[create]
   before_action :set_comment, only: %i[destroy]
-  before_action :authenticate_owner, only: %i[destroy]
+  before_action :authorize_owner, only: %i[destroy]
 
   def create
     @comment = @commentable.comments.build(comment_params)
@@ -32,7 +32,7 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:body).merge(user: current_user)
   end
 
-  def authenticate_owner
+  def authorize_owner
     return if current_user == @comment.user
 
     redirect_to report_url(@comment), notice: 'You do not have permission to edit or delete this comment.'

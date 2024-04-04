@@ -4,16 +4,17 @@ class Report < ApplicationRecord
   belongs_to :user
   has_many :comments, as: :commentable, dependent: :destroy
   has_many :active_mentions, class_name: 'Mention', dependent: :destroy
-  has_many :passive_mentions, class_name: 'Mention', foreign_key: 'mentioned_report_id', inverse_of: :mentioned_report, dependent: :destroy
-  has_many :mentioning_reports, through: :active_mentions, source: :mentioned_report
+  has_many :passive_mentions, class_name: 'Mention', foreign_key: 'mentioning_report_id', inverse_of: :mentioning_report, dependent: :destroy
+  has_many :mentioning_reports, through: :active_mentions, source: :mentioning_report
   has_many :mentioned_reports, through: :passive_mentions, source: :report
 
   validates :title, presence: true
   validates :content, presence: true
 
   after_create do
-    mentioned_report_ids = extract_mentioning_report_ids
-    add_mentions(mentioned_report_ids)
+    mentioning_report_ids = extract_mentioning_report_ids
+    add_mentions(mentioning_report_ids)
+  end
   end
 
   def editable?(target_user)
@@ -24,9 +25,9 @@ class Report < ApplicationRecord
     created_at.to_date
   end
 
-  def add_mentions(mentioned_report_ids)
-    mentioned_report_ids.each do |mentioned_report_id|
-      active_mentions.create(mentioned_report_id:)
+  def add_mentions(mentioning_report_ids)
+    mentioning_report_ids.each do |mentioning_report_id|
+      active_mentions.create(mentioning_report_id:)
     end
   end
 

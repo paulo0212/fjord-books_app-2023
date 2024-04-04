@@ -35,6 +35,6 @@ class CommentsController < ApplicationController
   def authorize_owner
     return if current_user == @comment.user
 
-    redirect_to report_url(@comment), notice: 'You do not have permission to edit or delete this comment.'
+    redirect_to report_url(@comment), notice: t('controllers.common.notice_no_permission', name: Comment.model_name.human)
   end
 end

@@ -15,6 +15,14 @@ class Report < ApplicationRecord
     mentioning_report_ids = extract_mentioning_report_ids
     add_mentions(mentioning_report_ids)
   end
+
+  after_update do
+    existing_ids = mentioning_report_ids
+    mentioning_ids = extract_mentioning_report_ids
+    report_ids_to_add = existing_ids - mentioning_ids
+    add_mentions(report_ids_to_add)
+    report_ids_to_remove = mentioning_ids - existing_ids
+    remove_mentions(report_ids_to_remove)
   end
 
   def editable?(target_user)
@@ -26,8 +34,18 @@ class Report < ApplicationRecord
   end
 
   def add_mentions(mentioning_report_ids)
+    return if mentioning_report_ids.none?
+
     mentioning_report_ids.each do |mentioning_report_id|
       active_mentions.create(mentioning_report_id:)
+    end
+  end
+
+  def remove_mentions(mentioning_report_ids)
+    return if mentioning_report_ids.none?
+
+    mentioning_report_ids.each do |mentioning_report_id|
+      active_mentions.find_by(mentioning_report_id:).destroy
     end
   end
 

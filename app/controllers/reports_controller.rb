@@ -9,7 +9,7 @@ class ReportsController < ApplicationController
 
   def show
     @report = Report.find(params[:id])
-    @mentioned_reports = @report.mentioned_reports
+    @mentions = @report.passive_mentions.includes(:report)
   end
 
   # GET /reports/new

@@ -1,0 +1,13 @@
+<% if mentions.present? %>
+  <div style='margin-top: 32px;'>
+    この日報は、以下の日報からリンクされています。
+    <ul>
+      <% mentions.each do |mention| %>
+        <li>
+          <a href='<%= mention.report.id %>'><%= mention.report.title %></a>
+          <span style='font-size: 0.8rem; color: gray;'>からリンク ( <%= time_ago_in_words(mention.created_at) %>前 )</span>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

@@ -45,7 +45,7 @@ class Report < ApplicationRecord
     return if mentioning_report_ids.none?
 
     mentioning_report_ids.each do |mentioning_report_id|
-      active_mentions.find_by(mentioning_report_id:).destroy
+      active_mentions.find_by(mentioning_report_id:)&.destroy
     end
   end
 

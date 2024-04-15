@@ -6,7 +6,7 @@
 
   <p>
     <strong><%= Report.human_attribute_name(:content) %>:</strong>
-    <%= format_content report.content %>
+    <%= sanitize convert_url_to_link(report.content.gsub("\n", '<br>')) %>
   </p>
 
   <p>

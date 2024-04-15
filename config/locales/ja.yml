@@ -82,6 +82,7 @@ ja:
       day: 日
       month: 月
       year: 年
+    ago: "%{count}前"
   errors:
     format: "%{attribute}%{message}"
     messages:
@@ -202,6 +203,9 @@ ja:
       previous: '‹ 前'
       next: '次 ›'
       truncate: '…'
+    reports:
+      mentioned_reports: この日報は、以下の日報からリンクされています。
+      mentioned_from: からリンク
   controllers:
     common:
       notice_create: "%{name}が作成されました。"

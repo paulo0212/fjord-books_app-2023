@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+.mentioned-report-container {
+  margin-top: 32px;
+}
+
+.mentioned-from {
+  font-size: 0.8rem;
+  color: gray;
+}

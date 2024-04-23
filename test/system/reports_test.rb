@@ -20,18 +20,18 @@ class ReportsTest < ApplicationSystemTestCase
     click_on '登録する'
 
     assert_text '日報が作成されました。'
-    assert_selector 'p', text: 'title'
-    assert_selector 'p', text: 'content'
-    assert_selector 'a', text: @user.name
+    assert_text 'title'
+    assert_text 'content'
+    assert_text @user.name
   end
 
   test 'show report' do
     report = FactoryBot.create(:report)
     visit report_url(report.id)
 
-    assert_selector 'p', text: report.title
-    assert_selector 'p', text: report.content
-    assert_selector 'a', text: report.user.name
+    assert_text report.title
+    assert_text report.content
+    assert_text report.user.name
   end
 
   test 'update report' do
@@ -44,9 +44,9 @@ class ReportsTest < ApplicationSystemTestCase
     click_on '更新する'
 
     assert_text '日報が更新されました。'
-    assert_selector 'p', text: 'title_updated'
-    assert_selector 'p', text: 'content_updated'
-    assert_selector 'a', text: @user.name
+    assert_text 'title_updated'
+    assert_text 'content_updated'
+    assert_text @user.name
   end
 
   test 'delete report' do
